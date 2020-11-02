@@ -1,0 +1,56 @@
+<div class="product-card-comp" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+
+  <div class="product-image">
+    <img class="image" src="{{product.image_src}}">
+  </div>
+
+  <div class="product-details">
+
+    <div class="vendor bold-lg" *ngIf="!showSizes">
+      {{ product.vendor }}
+    </div>
+
+    <div class="name normal-md text-color-light" *ngIf="!showSizes">
+      {{product.name}}
+    </div>
+
+    <div class="sizes-cont" *ngIf="showSizes">
+      <div class="size-text bold-lg">
+        Select Size
+      </div>
+
+      <div class="sizes">
+        <div class="size normal-md" *ngFor="let option of options" (click)="onSizeSelect(option.value)"
+          [class.selected-size]="selectedSize === option.value">
+          {{ option.value }}
+        </div>
+      </div>
+    </div>
+
+    <div class="add-button" *ngIf="sizeSelect">
+      <button class="cart-button bg-primary text-color-white" (click)="addToCart()">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="price-disc-cont">
+
+      <div class="price bold-lg">
+        ＄{{ product.price }}
+      </div>
+
+      <div class="init-price normal-md text-color-light">
+        <del>
+          ＄{{ product.compare_at_price }}
+        </del>
+      </div>
+
+      <div class="discount normal-md text-color-red">
+        ({{ product.discountPerc }} OFF)
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

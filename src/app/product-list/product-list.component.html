@@ -1,0 +1,92 @@
+<div class="product-list-comp root-div">
+
+ <app-top-bar
+  [cartBadge]="cartBadge"
+  (searchText)="onSearchText($event)">
+ </app-top-bar>
+
+  <header class="toolbar-cont invite-cont bg-primary">
+
+    <div class="text normal-xl text-color-white">
+      Invite Friends To Big Fashion Festival & Get Up To ＄150 MynCash For Every Person Who Visits
+    </div>
+
+    <div class="button-cont bg-white" (click)="handleLink()">
+      Invite Now
+    </div>
+
+  </header>
+
+  <app-loading *ngIf="!isApiFinished">
+  </app-loading>
+
+  <div class="content-div" *ngIf="isApiFinished && !showError">
+
+    <div class="filter-cont bg-white">
+
+      <div class="text-cont normal-md">
+        Home / Clothing / Mens Clothing / All Mens Clothing
+      </div>
+
+      <div class="product-cont">
+        <div class="product-text bold-xxl">
+          All Products
+        </div>
+
+        <div class="count normal-xxl text-color-light">
+          ({{ filteredList.length }} Products)
+        </div>
+        
+      </div>
+
+      <div class="filters">
+        <div class="left-filters">
+          <div class="filt-text bold-xl">
+            Filters :
+          </div>
+
+          <div class="tag-filters">
+            <div class="tags border-light text-color-light normal-md" *ngFor="let tag of tagsTypeList" 
+              [class.selected]="selectedTag === tag.id" (click)="onTagsClick(tag)">
+              {{ tag.value }}
+            </div>
+          </div>
+        </div>
+
+        <div class="right-filters">
+          <div class="sort-text normal-md text-color-light">
+            Sort By : 
+          </div>
+            <select 
+              class="option-cont"
+              (change)="onSortByPrice($event)">
+              <option  class="options" *ngFor="let filter of sortTypeData" [value]="filter">
+                {{filter}}
+              </option>
+            </select>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="product-list" *ngIf="filteredList.length; else emptyCont">
+
+      <div class="products" *ngFor="let prod of filteredList">
+        <app-product-card
+          [product]="prod"
+          (onAddToCart)="onAddToCart()">
+        </app-product-card>
+      </div>
+
+    </div>
+
+    <ng-template #emptyCont>
+      <div class="bold-xl empty-cont">
+        No Products Found
+      </div>
+    </ng-template>
+
+  </div>
+
+</div>

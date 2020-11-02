@@ -1,0 +1,104 @@
+<div class="cart-comp root-div bg-white">
+
+  <app-top-bar
+    [showCartCont]="false">
+  </app-top-bar>
+
+  <header class="toolbar-cont bold-xxl text-color-white bg-primary">
+    <span class="back" (click)="onBackPress()">
+      <i class="fa fa-arrow-left fa-2x"></i>
+    </span>
+
+    Cart Items
+  </header>
+
+  <div class="content-div background-light">
+
+    <div class="container" *ngIf="addedProduct.length; else emptyCont">
+
+      <mat-card class="cart-item-cont">
+
+        <div class="cart" *ngFor="let product of addedProduct">
+
+          <div class="top-container">
+
+            <div class="product-img">
+              <img class="item-img" [src]="product.image_src">
+            </div>
+
+            <div class="detail-cont">
+              <div class="name normal-xl">
+                {{ product.name }}
+              </div>
+
+              <div class="vendor bold-lg">
+                {{ product.vendor }}
+              </div>
+
+              <div class="size normal-md">
+                Size : 
+                <span class="upper-case">
+                  {{ product.options[0].value }}
+                </span>
+              </div>
+
+              <div class="price-disc-cont">
+              
+                <div class="price bold-lg">
+                  ＄{{ product.price }}
+                </div>
+              
+                <div class="init-price normal-md text-color-light">
+                  <del>
+                    ＄{{ product.compare_at_price }}
+                  </del>
+                </div>
+              
+                <div class="discount normal-md text-color-red">
+                  ({{ product.discountPerc }} OFF)
+                </div>
+              
+              </div>
+            </div>
+
+          </div>
+
+          <div class="bottom-cont">
+            <div class="decrement border-round" (click)="decrementProduct(product)" [class.text-color-light]="product.options.length === 1">
+              -
+            </div>
+
+            <div class="box">
+              {{ product.options.length }}
+            </div>
+
+            <div class="increment border-round" (click)="incrementProduct(product)">
+              +
+            </div>
+
+            <div class="remove" (click)="removeProduct(product)">
+              Remove
+            </div>
+          </div>
+
+        </div>
+
+        <div class="place-order-cont">
+          <button class="place-order bg-primary text-color-white bold-lg" (click)="placeOrder()">
+            Place Order
+          </button>
+        </div>
+  
+      </mat-card>
+
+    </div>
+
+    <ng-template #emptyCont>
+      <div class="bold-xl empty-cont">
+        Hey Your Cart is empty. Add some items to shop
+      </div>
+    </ng-template>
+
+  </div>
+
+</div>

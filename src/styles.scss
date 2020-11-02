@@ -1,0 +1,115 @@
+/* You can add global styles to this file, and also import other style files */
+html, body{
+  height    : 100vh;
+  width     : 100vw;
+  overflow  : hidden;
+  margin    : 0;
+} 
+
+.root-div {
+  height    : 100vh;
+  width     : 100vw;
+  overflow  : hidden;
+  z-index   : 100;
+}
+
+.bold-xxl {
+  font-weight : bold;
+  font-size   : 24px;
+  font-family : "Metropolis Regular";
+}
+
+.bold-xl {
+  font-weight : bold;
+  font-size   : 20px;
+  font-family : "Metropolis Regular";
+}
+
+.bold-lg {
+  font-weight : bold;
+  font-size   : 16px;
+  font-family : "Metropolis Regular";
+}
+
+.normal-xxl {
+  font-size   : 24px;
+  font-family : "Metropolis Regular";
+  font-weight : inherit;
+}
+
+.normal-xl {
+  font-size   : 18px;
+  font-family : "Metropolis Regular";
+  font-weight : inherit;
+}
+
+.normal-lg {
+  font-size   : 16px;
+  font-family : "Metropolis Regular";
+  font-weight : inherit;
+}
+
+.normal-md {
+  font-size   : 14px;
+  font-family : "Metropolis Regular";
+  font-weight : inherit;
+}
+
+.bg-white {
+  background  : white;
+}
+
+.text-color-white {
+  color : white;
+}
+
+.text-color-light {
+  color : #878787;
+}
+
+.text-color-red {
+  color: #F7ACAD;
+}
+
+.text-color-primary {
+  color : maroon;
+}
+
+.bg-primary {
+  background  :  linear-gradient(to right, #191716, #1E1816, #4D2412, #412113, #642A11, #9B3914, #E74E22);
+}
+
+.border-light {
+  border-style  : solid;
+  border-width  : 1px;
+  border-color  : #C4C4C4;
+  border-radius : 30px;
+}
+
+.content-div {
+  height      : calc(100% - 130px);
+  width       : 100%;
+  overflow-x  : hidden !important;
+  overflow-y  : auto;
+}
+
+.background-light {
+  background  : #f2f5f7;
+}
+
+button:hover {
+  background  : #f2f5f7;
+  color       : maroon;
+}
+
+.toolbar-cont {
+  height      : 60px;
+  padding     : 0 20px;
+  width       : calc(100% - 40px);
+  display     : flex;
+  align-items : center;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke  : maroon !important;
+}

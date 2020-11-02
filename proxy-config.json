@@ -1,0 +1,8 @@
+{
+  "/s": {
+    "target": "https://cdn.shopify.com",
+    "secure" : true,
+    "changeOrigin": true
+  }
+}
+

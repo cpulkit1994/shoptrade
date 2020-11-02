@@ -1,0 +1,56 @@
+<div class="top-bar-comp bg-white">
+    
+  <mat-card class="img-cont">
+    <img class="image" src="assets/images/shoptrade.png">
+  </mat-card>
+
+  <div class="box-cont normal-lg">
+    <div class="cont" (click)="handleLink()">
+      Shop 
+      <i class="fa fa-chevron-down"></i>
+    </div>
+
+    <div class="cont" (click)="handleLink()">
+       About Us 
+    </div>
+
+    <div class="cont" (click)="handleLink()">
+      Our Stores 
+    </div>
+
+    <div class="cont" (click)="handleLink()">
+      Contact Us 
+    </div>
+  </div>
+
+  <div class="box-cont" *ngIf="showCartCont">
+
+    <div class="comm-cont" *ngIf="!showSearchBox" (click)="onSearchClick()">
+      <i class="fa fa-search"></i>
+    </div>
+
+    <mat-card class="search-cont" *ngIf="showSearchBox">
+      <input
+        type="text"
+        class="normal-lg box-cont"
+        placeholder="Search Product"
+        (input)="onSearch($event)">
+    </mat-card>
+  
+
+    <div class="comm-cont" (click)="handleLink()">
+      <i class="fa fa-user"></i>
+    </div>
+
+    <div class="comm-cart" (click)="onCartClick()">
+      <div class="badge text-color-white" *ngIf="cartBadge">
+        {{ cartBadge }}
+      </div>
+      <div class="cart-icon">
+        <i class="fa fa-shopping-cart"></i>
+      </div>
+    </div>
+
+  </div>
+
+</div>
